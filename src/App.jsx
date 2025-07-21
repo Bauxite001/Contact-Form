@@ -22,8 +22,16 @@ function App() {
 		const { name, value } = e.target;
 
 		setValues((v) => ({ ...v, [name]: value }));
+		setValidator((v) => ({ ...v, [name]: "" }));
 	};
-	const [validator, setValidator] = useState({});
+	const [validator, setValidator] = useState({
+		fname: "",
+		lName: "",
+		email: "",
+		query: "",
+		message: "",
+		check: "",
+	});
 
 	function butt(e) {
 		const errors = {};
@@ -50,7 +58,7 @@ function App() {
 					message: "",
 				});
 
-				setRad(false);
+				setCheck(false);
 				setSubmitted(true);
 				setTimeout(() => setSubmitted(false), 5000);
 			}
@@ -66,7 +74,7 @@ function App() {
 		>
 			{submitted && (
 				<div
-					className="bg-[#2b4246] text-white px-4 py-3 rounded-2xl max-w-[400px] w-full shadow-lg mx-auto"
+					className="bg-[#2b4246] text-white px-4 py-3 rounded-2xl max-w-[25rem] w-full shadow-lg mx-auto"
 					role="status"
 					aria-live="polite"
 				>
